@@ -1,0 +1,39 @@
+
+
+
+
+
+
+<div class="project-title">
+<h2>{{projectDesc|titlecase}}</h2>
+</div>
+
+<div class="consumingData">
+    <input style=" background-color:#f2f2f2;color:#ffc107;font-size:20px;" type="text" placeholder="Appointment description" [(ngModel)]="newAppointmentTitle">
+    <input type="date" [(ngModel)]="newAppointmentDate" placeholder="Appointment Date" style="background-color:#f2f2f2;color:#ffc107;font-size:20px;" >
+    <button (click)="addAppointmentDetails()" class="Add">Add</button>
+</div>
+<h2 class="heading">Appointments Schedulings</h2>
+
+
+<div class="bg-container">
+<table class="table">
+<thead>
+  <tr *ngIf="appointments.length>0" class="thead">
+    <th><div>Appointment Id</div></th>
+    <th><div>Appointment desc</div></th>
+    <th><div>Appointment Date</div></th>
+    <th><div>Actions</div></th>
+  </tr>
+</thead>
+<tbody class="tbody">
+  <tr *ngFor="let app of appointments;index as i" >
+        <td>{{app.id}}</td> 
+        <td>{{app.title}}</td>
+        <td>{{app.date}}</td>
+        <td><button (click)="deleteAppointment(i)" class="del">Delete</button></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
